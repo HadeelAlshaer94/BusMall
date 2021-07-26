@@ -1,7 +1,5 @@
 'use strict';
 
-//declarations
-
 let leftImgElement = document.getElementById('leftImg');
 let middleImgElement = document.getElementById('middleImg');
 let rightImgElement = document.getElementById('rightImg');
@@ -13,7 +11,7 @@ let leftIndex;
 let rightIndex;
 let middleIndex;
 
-//constructer function
+// from Haneen Hashlamoon
 function Product(name, src) {
     this.name = name;
     this.imgSource = src;
@@ -45,7 +43,7 @@ new Product('wine-glass', 'img/wine-glass.jpg');
 
 console.log(Product.all);
 
-// from w3 schools
+
 function getRandomIndex() {
 
     return Math.floor(Math.random() * Product.all.length);
