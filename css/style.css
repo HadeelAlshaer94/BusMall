@@ -131,3 +131,12 @@ footer {
     padding: 20px;
     color: #F3F2C9;
 }
+
+
+#chartDiv{
+    padding: 15px;
+    background: #F3F2C9;
+    height: 250px;
+    width: 740px;
+
+}

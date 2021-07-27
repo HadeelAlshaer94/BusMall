@@ -1,8 +1,11 @@
 'use strict';
 
+//declarations
+
 let leftImgElement = document.getElementById('leftImg');
 let middleImgElement = document.getElementById('middleImg');
 let rightImgElement = document.getElementById('rightImg');
+let buttonElement = document.getElementById('viewListbtn');
 
 let topAttempt = 25;
 let clientAttempts = 0;
@@ -11,7 +14,12 @@ let leftIndex;
 let rightIndex;
 let middleIndex;
 
-// from Haneen Hashlamoon
+//Chart
+let namesArr = [];
+let votesArr = [];
+let shownArr = [];
+
+//constructer function
 function Product(name, src) {
     this.name = name;
     this.imgSource = src;
@@ -41,29 +49,34 @@ new Product('unicorn', 'img/unicorn.jpg');
 new Product('water-can', 'img/water-can.jpg');
 new Product('wine-glass', 'img/wine-glass.jpg');
 
-console.log(Product.all);
+// console.log(Product.all);
 
-
+// from w3 schools
 function getRandomIndex() {
 
     return Math.floor(Math.random() * Product.all.length);
 }
 
 // render
+let number = [];
 
 function renderImages() {
 
+
+    number = [leftIndex, middleIndex, rightIndex];
+    console.log(number);
     leftIndex = getRandomIndex();
     middleIndex = getRandomIndex();
     rightIndex = getRandomIndex();
-    console.log(leftIndex, middleIndex, rightIndex);
+    // console.log(leftIndex, middleIndex, rightIndex);
 
-    while (leftIndex === middleIndex || middleIndex === rightIndex || middleIndex === leftIndex) {
+
+    while (leftIndex === rightIndex || leftIndex === middleIndex || middleIndex === rightIndex || number.includes(rightIndex) || number.includes(leftIndex) || number.includes(middleIndex)) {
         rightIndex = getRandomIndex();
-        middleIndex = getRandomIndex();
         leftIndex = getRandomIndex();
+        middleIndex = getRandomIndex();
     }
-    
+
     leftImgElement.src = Product.all[leftIndex].imgSource;
     rightImgElement.src = Product.all[rightIndex].imgSource;
     middleImgElement.src = Product.all[middleIndex].imgSource;
@@ -83,12 +96,12 @@ let list = document.getElementById('productsList');
 
 function userClick(event) {
     clientAttempts++;
-    console.log(clientAttempts);
+    // console.log(clientAttempts);
 
     if (clientAttempts <= topAttempt) {
 
         if (event.target.id === 'leftImg') {
-            Product.all[leftIndex].votes++;            
+            Product.all[leftIndex].votes++;
 
         } else if (event.target.id === 'middleImg') {
             Product.all[rightIndex].votes++;
@@ -103,9 +116,19 @@ function userClick(event) {
         renderImages();
 
     } else {
+
+        //chart
+        for (let i = 0; i < Product.all.length; i++) {
+            namesArr.push(Product.all[i].name);
+            votesArr.push(Product.all[i].votes);
+            shownArr.push(Product.all[i].shown);
+        }
+
+
         mainDiv.removeEventListener('click', userClick);
-        let buttonElement = document.getElementById('viewListbtn');
         buttonElement.addEventListener('click', showList);
+
+
     }
 }
 
@@ -115,4 +138,9 @@ function showList() {
         list.appendChild(listItem);
         listItem.textContent = `${Product.all[i].name} has ${Product.all[i].votes} votes and shown ${Product.all[i].shown} times`;
     }
+    buttonElement.removeEventListener('click', showList);
+    console.log(votesArr, shownArr, namesArr);
+    showChart();
+
 }
+
