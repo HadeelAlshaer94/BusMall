@@ -1,5 +1,7 @@
 'use strict';
 
+//declarations
+
 let leftImgElement = document.getElementById('leftImg');
 let middleImgElement = document.getElementById('middleImg');
 let rightImgElement = document.getElementById('rightImg');
@@ -17,13 +19,14 @@ let namesArr = [];
 let votesArr = [];
 let shownArr = [];
 
-
+//constructer function
 function Product(name, src) {
     this.name = name;
     this.imgSource = src;
     this.votes = 0;
     this.shown = 0;
     Product.all.push(this);
+    // updateStorage();
 }
 Product.all = [];
 
@@ -59,10 +62,17 @@ function getProductsInfo() {
     let parsedArr = JSON.parse(data)    
     if (parsedArr !== null) {
         Product.all = parsedArr;
+        // for (let i = 0; i < parsedArr.length; i++) {
+        //     // new Product(parsedArr[i].name,parsedArr[i].votes,parsedArr[i].shown,parsedArr[i].imgSource);
+        //     productOfget = Product.create(parsedArr[i]);
+        //     productOfget.create(Product.prototype);
+        //   }
+        // console.log(Product.all);
     }    
 }
 
-// from haneen haslamoon
+
+// from w3 schools
 function getRandomIndex() {
 
     return Math.floor(Math.random() * Product.all.length);
@@ -101,9 +111,11 @@ let mainDiv = document.getElementById('main-div');
 mainDiv.addEventListener('click', userClick);
 let list = document.getElementById('productsList');
 
+//Div user click
 function userClick(event) {
     event.preventDefault();
     clientAttempts++;
+    // console.log(clientAttempts);
 
     if (clientAttempts <= topAttempt) {
         if (event.target.id === 'leftImg') {
@@ -120,10 +132,23 @@ function userClick(event) {
         renderImages();
 
     }
-    
+    else {
+        //chart
+        for (let i = 0; i < Product.all.length; i++) {
+            namesArr.push(Product.all[i].name);
+            votesArr.push(Product.all[i].votes);
+            shownArr.push(Product.all[i].shown);
+        }
+        mainDiv.removeEventListener('click', userClick);
+        buttonElement.addEventListener('click', showList);
+        
+        // updateStorage();
+
+    }
     updateStorage();
 }
 
+//btnclick
 function showList() {
     for (let i = 0; i < Product.all.length; i++) {
         let listItem = document.createElement('li');
@@ -131,10 +156,12 @@ function showList() {
         listItem.textContent = `${Product.all[i].name} has ${Product.all[i].votes} votes and shown ${Product.all[i].shown} times`;
     }
     buttonElement.removeEventListener('click', showList);
+    // console.log(votesArr, shownArr, namesArr);
+    showChart();
 
 }
 
-
+//Chart 
 function showChart() {
     const data = {
         labels: namesArr,
