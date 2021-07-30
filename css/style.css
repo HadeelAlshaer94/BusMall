@@ -1,26 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap');
+
 
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #53B8BB;
-    color: #F3F2C9;
+    font-family: cursive;
+    background-color: #FDF6F0;
+    background-attachment: fixed;
 }
 
 main {
-    display: flex;
-    justify-content: space-between;
     width: 75%;
     margin: 30px auto;
     padding: 0px;
+    display: flex;
+    justify-content: space-between;
 }
 
 header {
-    background-color: #055052;
-    height: 130px;
+    background-color: #F5C6AA;
+    height: 125px;
     margin-bottom: 30px;
 }
 
 nav {
-    width: 960px;
+    width: 1000px;
     margin: 0px auto;
 }
 
@@ -28,36 +30,35 @@ nav img {
     margin-top: 15px;
     margin-right: 30px;
     float: left;
-    width: 10%;
+    width: 20%;
     height: auto;
 }
 
-/* nav h1  */
 nav h1 {
-    color: #F3F2C9;
-    margin-top: 5%;
     margin-right: 30px;
     float: left;
-    font-family:'Times New Roman', Times, serif;
-    font-size: larger;
+    color: #2C2E43;
+    font-family: cursive;
+    font-size: xx-large;
+    margin-top: 5%;
 }
 
 #imgsDiv {
-    padding: 0%;
     width: 800px;
     margin: 0px auto;
+    padding: 0%;
 }
 
 #imgsDiv ul {
-    margin: 30px auto;
     padding: 0px;
     display: flex;
     justify-content: space-between;
+    margin: 30px auto;
 }
 
 #imgsDiv li {
-    margin: 30px, 30px, 30px, 0px;
     display: inline-block;
+    margin: 30px, 30px, 30px, 0px;
 }
 
 li img {
@@ -70,29 +71,20 @@ li img {
     height: 500px auto;
     margin: 0px auto;
     padding: 10px;
-    background: #055052;
+    font-family: cursive;
+    background: #C1AC95;
 }
 
-#BottonDiv ul {
+#listDiv ul {
     margin: 30px;
-}
-
-#productsList {
-    list-style: circle;
-    color: #F3F2C9;
-    line-height: 25px;
-    font-size: 15px;
-    font-family: 'Times New Roman', Times, serif;
-    margin: 50px auto;
-
 }
 
 button {
     border: none;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: cursive;
     font-size: 18px;
-    color: #F3F2C9;
-    background: #53B8BB;
+    color: #C1AC95;
+    background: #2C2E43;
     padding: 10px 30px;
     border-radius: 5px;
     transition: 350ms;
@@ -100,43 +92,31 @@ button {
 }
 
 button:hover {
-    background: #055052;
+    background: #C1AC95;
 }
 
 #paragraph {
-    display: block;
-    height: 250px;
-    width: 750px;
-    padding: 10px;
-    line-height: 30px;
     margin-bottom: 10px;
     margin-top: 50px;
-    font-family: 'Times New Roman', Times, serif;
-    color: #F3F2C9;
-    background: #055052;
+    font-family: cursive;
+    color: whitesmoke;
+    background: #C1AC95;
     font-size: 15px;
+    display: block;
+    height: 350px;
+    width: 747px;
+    padding: 10px;
+    line-height: 30px;
     text-align: justify;
-}
-#BottonDiv{
-    background-color: #055052;
-    width: 25%;
+    color: #2C2E43;
 }
 
 footer {
-    text-align: center;
+    font-family: cursive;
+    background-color: #F5C6AA;
     clear: both;
     height: 50px;
-    background-color: #003638;
-    font-family: 'Times New Roman', Times, serif;
     padding: 20px;
-    color: #F3F2C9;
-}
-
-
-#chartDiv{
-    padding: 15px;
-    background: #F3F2C9;
-    height: 250px;
-    width: 740px;
-
+    text-align: center;
+    color: #2C2E43;
 }
