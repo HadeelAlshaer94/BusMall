@@ -12,7 +12,10 @@ let leftIndex;
 let rightIndex;
 let middleIndex;
 
-
+//Chart
+let namesArr = [];
+let votesArr = [];
+let shownArr = [];
 
 
 function Product(name, src) {
